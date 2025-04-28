@@ -29,10 +29,10 @@ import { StLinkButton } from "./components/streamlit/linkButton";
 import { StBadges } from "./components/streamlit/badge";
 import { ElementRenderer } from "./components/streamlit/element";
 import { useAutoHeight } from "./hooks/useAutoHeight";
-import { StBreadcrumb} from "./components/streamlit/breadcrumb";
+import { StBreadcrumb } from "./components/streamlit/breadcrumb";
 import { StInputOTP } from "./components/streamlit/inputOTP";
-import { StDropdownMenuTrigger} from "./components/streamlit/dropdownMenu/dropdownMenuTrigger";
-import { StDropdownMenuContent} from "./components/streamlit/dropdownMenu/dropdownMenuContent";
+import { StDropdownMenuTrigger } from "./components/streamlit/dropdownMenu/dropdownMenuTrigger";
+import { StDropdownMenuContent } from "./components/streamlit/dropdownMenu/dropdownMenuContent";
 import { StCarousel } from "./components/streamlit/carousel";
 import { StProgress } from "./components/streamlit/progress";
 import { StAccordion } from "./components/streamlit/accordtion";
@@ -42,8 +42,8 @@ import { StCollapsible } from "./components/streamlit/collapsible";
 import { StScrollArea } from "./components/streamlit/scrollArea";
 import { StDialog } from "./components/streamlit/dialog";
 import { StCommand } from "./components/streamlit/command";
-import { StResizable} from "./components/streamlit/resizable";
-import { StToggle} from "./components/streamlit/toggle";
+import { StResizable } from "./components/streamlit/resizable";
+import { StToggle } from "./components/streamlit/toggle";
 import { StPagination } from "./components/streamlit/pagination";
 import { StPopoverTrigger } from "./components/streamlit/popover/popoverTrigger";
 import { StPopoverContent } from "./components/streamlit/popover/popoverContent";
@@ -96,7 +96,7 @@ crouter.declare("toggle_group", StToggleGroup);
 crouter.declare("aspect_ratio", StAspectRatio);
 crouter.declare("separator", StSeparator);
 
-function App(props: ComponentProps<{comp: string; props: any; [key: string]: any}>) {
+function App(props: { args: { comp: string; props: any; safeHeight?: number }; width: any; disabled: any; theme: any;[key: string]: any }) {
     const { args, width, disabled, theme } = props;
     const container = useRef(null);
     const safeHeight = args.safeHeight ?? 10;

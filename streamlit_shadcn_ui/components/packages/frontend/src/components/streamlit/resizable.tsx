@@ -5,7 +5,7 @@ import {
 } from "@/components/ui/resizable"
 
 import { forwardRef } from "react"
-  
+
 interface PanelConfig {
   content: string
   defaultSize: number
@@ -17,11 +17,12 @@ interface StResizableProps {
 }
 
 export const StResizable = forwardRef<HTMLDivElement, StResizableProps>(
-  (props:StResizableProps, ref) => {
-    const { panels,direction } = props
+  (props: StResizableProps, ref) => {
+    const { panels, direction } = props
     return (
       <div ref={ref}>
         <ResizablePanelGroup
+          // @ts-ignore
           direction={direction}
           className="max-w-md rounded-lg border md:min-w-[450px]"
         >

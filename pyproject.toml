@@ -15,11 +15,7 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
-dependencies = [
-    "streamlit",
-    "streamlit_extras",
-    "pandas"
-]
+dependencies = ["streamlit", "streamlit_extras", "pandas"]
 
 [project.license]
 file = "LICENSE"
