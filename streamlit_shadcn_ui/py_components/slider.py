@@ -12,6 +12,23 @@ def slider(
     key=None,
     className=None,
 ):
+    """
+    Create a slider component.
+
+    Args:
+        default_value (int, optional): The default value of the slider. Defaults to None.
+        min_value (int, optional): The minimum value of the slider. Defaults to 0.
+        max_value (int, optional): The maximum value of the slider. Defaults to 100.
+        step (int, optional): The step value of the slider. Defaults to 1.
+        label (str, optional): The label of the slider. Defaults to None.
+        key (str, optional): The key of the slider. Defaults to None.
+        className (str, optional): The class name of the slider. Defaults to None.
+    Examples:
+    ```python
+    import streamlit_shadcn_ui as ui
+    ui.slider(default_value=50, min_value=0, max_value=100, step=1, label="Slider", key="slider1")
+    ```
+    """
     props = {
         "defaultValue": default_value,
         "min": min_value,

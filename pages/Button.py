@@ -4,8 +4,6 @@ import streamlit as st
 
 import streamlit_shadcn_ui as ui
 
-theme = "dark"
-
 st.header("Button")
 
 with open(Path(__file__).parent.parent / "docs/components/button.md", "r") as f:
@@ -24,7 +22,9 @@ variant_options = ["default", "destructive", "outline", "secondary", "ghost", "l
 
 for variant in variant_options:
     ui.button(
-        text=f"Button ({variant})", variant=variant, key=variant, class_name="theme"
+        text=f"Button ({variant})",
+        variant=variant,
+        key=variant,
     )
 
 st.subheader("Custom style of button")

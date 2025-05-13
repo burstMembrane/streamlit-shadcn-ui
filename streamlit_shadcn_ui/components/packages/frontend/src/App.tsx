@@ -99,7 +99,6 @@ crouter.declare("separator", StSeparator);
 
 function App(props: { args: { comp: string; props: any; safeHeight?: number }; width: any; disabled: any; theme: any;[key: string]: any }) {
     const { args, width, disabled, theme } = props;
-    console.log("theme", theme);
     const container = useRef(null);
     const safeHeight = args.safeHeight ?? 10;
     if (import.meta.env.DEV) {
@@ -110,7 +109,7 @@ function App(props: { args: { comp: string; props: any; safeHeight?: number }; w
     useAutoHeight(container, safeHeight);
     console.log("Rendering", args.comp);
     return (
-        <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+        <ThemeProvider defaultTheme={theme["base"]} storageKey="vite-ui-theme">
             {crouter.render(args.comp, container, args.props)}
         </ThemeProvider>
     );

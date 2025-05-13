@@ -1,3 +1,5 @@
+from typing import Optional
+
 import streamlit as st
 from streamlit_extras.stylable_container import stylable_container
 
@@ -46,9 +48,9 @@ def popover_content(
 
 
 def popover(
-    label="Open",
-    content=None,
-    key=None,
+    label: Optional[str] = "Open",
+    content: Optional[str] = None,
+    key: Optional[str] = None,
 ):
     trigger_key = f"trigger_{key}"
     content_key = f"content_{key}"

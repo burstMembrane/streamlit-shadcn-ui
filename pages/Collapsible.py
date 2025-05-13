@@ -11,7 +11,7 @@ with open(Path(__file__).parent.parent / "docs/components/collapsible.md", "r") 
 
 ui.collapsible(
     title="@peduarte starred 3 repositories",
-    fistItem="@radix-ui/primitives",
+    firstItem="@radix-ui/primitives",
     items=["@radix-ui/colors", "@stitches/react"],
     class_name=None,
     key="collapsible1",

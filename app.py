@@ -23,7 +23,7 @@ def cn(*inputs):
 dark_mode = ui.switch(default_checked=True, label="Dark Mode", key="dark_mode")
 theme = "dark" if dark_mode else "light"
 st.header("Streamlit Shadcn UI")
-
+ui.button(text="button", key="btn1")
 ui.alert(title="This is an alert", description="This is an alert description")
 ui.badges(
     badge_list=[
@@ -234,8 +234,6 @@ ui.alert_dialog(
     key="alert_dialog1",
 )
 
-# show progress bar
-from time import sleep
 
 st.markdown("### Progress Bar")
 
