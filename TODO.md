@@ -1,34 +1,34 @@
+# TODO
+
+## Features
+
+- [ ] Support light/dark theme based on streamlit theme
+- [ ] Add new components (sonner, toast) etc from shadcn
+- [ ] Theming
+- [ ] Find a way to add non-string content to elements that currently just take a string as input (e.g Hovercard)
 
 ## Fix
 
-- Popover
-- Popup
-- Accordion
-- Alertdialog (e.current is null)
-- Command (Does nothing)
-- Datepicker (Doesn't trigger when clicked)
-- Dialog (e.current is null)
-- Hovercard (add editable content, perhaps through a element?)
-- Input OTP (n is null)
-- Link Button
-- Popover (e.current is null)
-- Select (it doesn't popup when you select anything)
+- [ ] Popover
+- [ ] Popup
+- [ ] Accordion
+- [ ] Alertdialog (e.current is null)
+- [ ] Command (Does nothing)
+- [ ] Datepicker (Doesn't trigger when clicked)
+- [ ] Dialog (e.current is null)
+- [ ] Hovercard (add editable content, perhaps through a element?)
+- [ ] Input OTP (n is null)
 
-## Add Docs
-
-- [ ] Separator
-- [ ] Skeleton
-
-## Components are working
+## Working
 
 - [x] button
 - [x] checkbox
-- [ ] select
+- [x] select
 - [x] tabs
 - [x] card
 - [x] avatar
 - [ ] date_picker (need to figure out the trigger logic)
-- [x] date_range_picker (date_picker with mode="range")
+- [ ] date_range_picker (date_picker with mode="range")
 - [x] table
 - [x] input
 - [x] slider
