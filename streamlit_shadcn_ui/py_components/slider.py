@@ -1,16 +1,18 @@
+from typing import Optional
+
 from .utils import declare_component
 
 _component_func = declare_component("slider")
 
 
 def slider(
-    default_value=None,
-    min_value=0,
-    max_value=100,
-    step=1,
-    label=None,
-    key=None,
-    className=None,
+    default_value: Optional[int] = None,
+    min_value: Optional[int] = 0,
+    max_value: Optional[int] = 100,
+    step: Optional[int] = 1,
+    label: Optional[str] = None,
+    key: Optional[str] = None,
+    className: Optional[str] = None,
 ):
     """
     Create a slider component.

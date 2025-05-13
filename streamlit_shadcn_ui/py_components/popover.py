@@ -52,6 +52,21 @@ def popover(
     content: Optional[str] = None,
     key: Optional[str] = None,
 ):
+    """
+    Create a popover component.
+
+    Args:
+        label (str, optional): The label of the popover. Defaults to "Open".
+        content (str, optional): The content of the popover. Defaults to None.
+        key (str, optional): The key of the popover. Defaults to None.
+
+    Examples:
+    ```python
+    import streamlit_shadcn_ui as ui
+    ui.popover(key="popover1", label="popover", content="Place content for the popover here.")
+
+    ```
+    """
     trigger_key = f"trigger_{key}"
     content_key = f"content_{key}"
     # Initialize session state
