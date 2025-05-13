@@ -25,12 +25,14 @@ export const StInput = forwardRef<HTMLInputElement, StInputProps>(
             setInputValue(event.target.value);
             Streamlit.setComponentValue(event.target.value);
         };
-        
-        useBodyStyle("body { padding-right: 0.5em !important; }")
+
+        useBodyStyle(`
+            body { padding-right: 0.5em !important; }
+        `)
 
         return (
             <Input
-                className={`m-1 ${className}`}
+                className={`m-1 focus:ring-0 focus:ring-offset-0 focus:border-0 ${className}`}
                 ref={ref}
                 type={type || 'text'}
                 value={inputValue}

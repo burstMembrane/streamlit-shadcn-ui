@@ -1,6 +1,7 @@
 import { forwardRef, useState } from "react";
 import { Streamlit } from "streamlit-component-lib";
 import { Slider } from "@/components/ui/slider";
+import { cn } from "@/lib/utils";
 
 interface StSliderProps {
     defaultValue?: number[];
@@ -8,11 +9,12 @@ interface StSliderProps {
     min?: number;
     step?: number;
     label?: string;
+    className?: string;
 }
 
 export const StSlider = forwardRef<HTMLDivElement, StSliderProps>(
     (props: StSliderProps, ref) => {
-        const { defaultValue, max, min, step, label } = props;
+        const { defaultValue, max, min, step, label, className } = props;
         const [sliderValue, setSliderValue] = useState<number[]>(defaultValue || [0]);
 
         // Handle slider value change
@@ -22,7 +24,7 @@ export const StSlider = forwardRef<HTMLDivElement, StSliderProps>(
         };
 
         return (
-            <div ref={ref} className="flex flex-col space-y-2 m-1">
+            <div ref={ref} className={cn("flex flex-col space-y-2 m-1", className)}>
                 {label && <label>{label}</label>}
                 <Slider
                     defaultValue={defaultValue}

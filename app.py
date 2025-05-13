@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import numpy as np
 import pandas as pd
 import streamlit as st
@@ -6,7 +8,23 @@ import streamlit_shadcn_ui as ui
 from local_components import card_container
 from streamlit_shadcn_ui import input, radio_group, slider, switch, textarea
 
+st.set_page_config(
+    page_title="Streamlit Shadcn UI",
+    page_icon=":material/dashboard:",
+    initial_sidebar_state="collapsed",
+)
+
+
+def cn(*inputs):
+    return " ".join(inputs)
+
+
+# show a button to toggle dark mode
+dark_mode = ui.switch(default_checked=True, label="Dark Mode", key="dark_mode")
+theme = "dark" if dark_mode else "light"
 st.header("Streamlit Shadcn UI")
+
+ui.alert(title="This is an alert", description="This is an alert description")
 ui.badges(
     badge_list=[
         ("shadcn", "default"),
@@ -22,14 +40,15 @@ st.caption(
 st.caption("Get started with pip install streamlit-shadcn-ui")
 
 
-with ui.element("div", className="flex gap-2", key="buttons_group1"):
-    ui.element("button", text="Get Started", className="btn btn-primary", key="btn1")
+with ui.element("div", className=cn("flex gap-2", theme), key="buttons_group1"):
+    ui.element("button", text="Get Started", className=cn("dark", theme), key="btn1")
     ui.element(
         "link_button",
         text="Github",
         url="https://github.com/ObservedObserver/streamlit-shadcn-ui",
         variant="outline",
         key="btn2",
+        className=theme,
     )
 
 st.subheader("Dashboard")
@@ -38,33 +57,37 @@ ui.tabs(
     options=["Overview", "Analytics", "Reports", "Notifications"],
     default_value="Overview",
     key="main_tabs",
+    className=cn(theme),
 )
-
-ui.date_picker(key="date_picker1")
+# this isn't showing up
+ui.element("date_picker", key="date_picker1", className=theme)
 
 cols = st.columns(3)
 with cols[0]:
-    # with ui.card():
-    #     ui.element()
-    ui.card(
+    ui.element(
+        "card",
         title="Total Revenue",
         content="$45,231.89",
         description="+20.1% from last month",
         key="card1",
     ).render()
 with cols[1]:
-    ui.card(
+    ui.element(
+        "card",
         title="Subscriptions",
         content="+2350",
         description="+180.1% from last month",
         key="card2",
+        className=theme,
     ).render()
 with cols[2]:
-    ui.card(
+    ui.element(
+        "card",
         title="Sales",
         content="+12,234",
         description="+19% from last month",
         key="card3",
+        className=cn("invert", theme),
     ).render()
 
 
@@ -88,7 +111,7 @@ def generate_sales_data():
     return pd.DataFrame({"Month": months, "Sales": sales})
 
 
-with card_container(key="chart1"):
+with st.container(key="chart1"):
     st.vega_lite_chart(
         generate_sales_data(),
         {
@@ -148,11 +171,11 @@ data = [
 # Creating a DataFrame
 invoice_df = pd.DataFrame(data)
 
-with card_container(key="table1"):
+with st.container(key="table1"):
     ui.table(data=invoice_df, maxHeight=300)
 
 
-ui_result = ui.button("Button", key="btn")
+ui_result = ui.button("Button", key="btn", variant="ghost")
 st.write("UI Button Clicked:", ui_result)
 
 
@@ -164,6 +187,7 @@ slider_value = slider(
     step=2,
     label="Select a Range",
     key="slider1",
+    className=cn("h-24", theme),
 )
 st.write("Slider Value:", slider_value)
 
@@ -173,6 +197,7 @@ input_value = input(
     type="text",
     placeholder="Enter text here",
     key="input1",
+    className=cn("outline-none focus-visible:ring-0", theme),
 )
 st.write("Input Value:", input_value)
 
@@ -181,6 +206,7 @@ textarea_value = textarea(
     default_value="Type your message here...",
     placeholder="Enter longer text",
     key="textarea1",
+    className=cn("outline-none focus-visible:ring-0", theme),
 )
 st.write("Textarea Value:", textarea_value)
 
@@ -207,3 +233,11 @@ ui.alert_dialog(
     cancel_label="Cancel",
     key="alert_dialog1",
 )
+
+# show progress bar
+from time import sleep
+
+st.markdown("### Progress Bar")
+
+for i in range(0, 100, 33):
+    ui.progress(i)

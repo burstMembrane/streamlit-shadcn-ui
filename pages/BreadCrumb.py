@@ -1,10 +1,12 @@
+from pathlib import Path
+
 import streamlit as st
 
 import streamlit_shadcn_ui as ui
 
 st.header("Breadcrumb")
 
-with open("docs/components/bread_crumb.md", "r") as f:
+with open(Path(__file__).parent.parent / "docs/components/bread_crumb.md", "r") as f:
     st.markdown(f.read())
 
 ui.breadcrumb(
@@ -14,7 +16,7 @@ ui.breadcrumb(
         {"text": "Breadcrumb", "isCurrentPage": True},
     ],
     class_name="flex gap-2 text-sm",
-    key="breadcrumb1"
+    key="breadcrumb1",
 )
 
 st.write(ui.breadcrumb)

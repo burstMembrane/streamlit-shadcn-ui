@@ -1,18 +1,22 @@
+from pathlib import Path
+
 import streamlit as st
 
 import streamlit_shadcn_ui as ui
 
 st.header("Dropdown Menu")
 
-with open("docs/components/dropdown_menu.md", "r") as f:
+with open(Path(__file__).parent.parent / "docs/components/dropdown_menu.md", "r") as f:
     st.markdown(f.read())
 
 value = ui.dropdown_menu(
     label="Open",
     items=[
-       "Home", "Components", "DropdownMenu",
+        "Home",
+        "Components",
+        "DropdownMenu",
     ],
-    key="dropdownmenu1"
+    key="dropdownmenu1",
 )
 
 st.write(ui.dropdown_menu)

@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import streamlit as st
 
 import streamlit_shadcn_ui as ui
@@ -13,9 +15,15 @@ checkbox_options = [
 
 checkbox_values = [option["default_checked"] for option in checkbox_options]
 
-checkbox_values[0] = ui.checkbox(mode="single", options=[checkbox_options[0]], key="cb1")
-checkbox_values[1] = ui.checkbox(mode="single", options=[checkbox_options[1]], key="cb2")
-checkbox_values[2] = ui.checkbox(mode="single", options=[checkbox_options[2]], key="cb3")
+checkbox_values[0] = ui.checkbox(
+    mode="single", options=[checkbox_options[0]], key="cb1"
+)
+checkbox_values[1] = ui.checkbox(
+    mode="single", options=[checkbox_options[1]], key="cb2"
+)
+checkbox_values[2] = ui.checkbox(
+    mode="single", options=[checkbox_options[2]], key="cb3"
+)
 
 st.markdown(f"""
 + checkbox 1 value: {checkbox_values[0]}
@@ -25,15 +33,17 @@ st.markdown(f"""
 
 st.subheader("Multiple Choices")
 checkbox_options_multiple = [
-    {"label": "Option A", "id": "m1", "default_checked":False},
-    {"label": "Option B", "id": "m2", "default_checked":False},
-    {"label": "Option C", "id": "m3", "default_checked":False},
-    {"label": "Option D", "id": "m4", "default_checked":False}
+    {"label": "Option A", "id": "m1", "default_checked": False},
+    {"label": "Option B", "id": "m2", "default_checked": False},
+    {"label": "Option C", "id": "m3", "default_checked": False},
+    {"label": "Option D", "id": "m4", "default_checked": False},
 ]
-radio_value_1 = ui.checkbox(mode="multiple", options=checkbox_options_multiple, key="cb4")
+radio_value_1 = ui.checkbox(
+    mode="multiple", options=checkbox_options_multiple, key="cb4"
+)
 st.write("Selected Option:", radio_value_1)
 
 st.write(ui.checkbox)
 
-with open("docs/components/checkbox.md", "r") as f:
+with open(Path(__file__).parent.parent / "docs/components/checkbox.md", "r") as f:
     st.markdown(f.read())

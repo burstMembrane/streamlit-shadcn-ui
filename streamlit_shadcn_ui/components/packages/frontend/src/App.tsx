@@ -35,7 +35,7 @@ import { StDropdownMenuTrigger } from "./components/streamlit/dropdownMenu/dropd
 import { StDropdownMenuContent } from "./components/streamlit/dropdownMenu/dropdownMenuContent";
 import { StCarousel } from "./components/streamlit/carousel";
 import { StProgress } from "./components/streamlit/progress";
-import { StAccordion } from "./components/streamlit/accordtion";
+import { StAccordion } from "./components/streamlit/accordion";
 import { StAlert } from "./components/streamlit/alert";
 import { StCalendar } from "./components/streamlit/calendar";
 import { StCollapsible } from "./components/streamlit/collapsible";
@@ -50,6 +50,7 @@ import { StPopoverContent } from "./components/streamlit/popover/popoverContent"
 import { StToggleGroup } from "./components/streamlit/toggleGroup";
 import { StAspectRatio } from "./components/streamlit/aspectRatio";
 import { StSeparator } from "./components/streamlit/separator";
+import { ThemeProvider } from "./components/theme-provider";
 
 const crouter = new ComponentRouter();
 crouter.declare("button", StButton);
@@ -80,7 +81,7 @@ crouter.declare("dropdown_menu_trigger", StDropdownMenuTrigger);
 crouter.declare("dropdown_menu_content", StDropdownMenuContent);
 crouter.declare("carousel", StCarousel);
 crouter.declare("progress", StProgress);
-crouter.declare("accordtion", StAccordion);
+crouter.declare("accordion", StAccordion);
 crouter.declare("alert", StAlert);
 crouter.declare("calendar", StCalendar);
 crouter.declare("collapsible", StCollapsible);
@@ -98,6 +99,7 @@ crouter.declare("separator", StSeparator);
 
 function App(props: { args: { comp: string; props: any; safeHeight?: number }; width: any; disabled: any; theme: any;[key: string]: any }) {
     const { args, width, disabled, theme } = props;
+    console.log("theme", theme);
     const container = useRef(null);
     const safeHeight = args.safeHeight ?? 10;
     if (import.meta.env.DEV) {
@@ -106,8 +108,12 @@ function App(props: { args: { comp: string; props: any; safeHeight?: number }; w
     // TODO: different safe-height for different components
     // 10px is the minimum safe height for slider, while most of the other components do not need it.
     useAutoHeight(container, safeHeight);
-
-    return crouter.render(args.comp, container, args.props);
+    console.log("Rendering", args.comp);
+    return (
+        <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+            {crouter.render(args.comp, container, args.props)}
+        </ThemeProvider>
+    );
 }
 
 export const StApp = withStreamlitConnection(App);

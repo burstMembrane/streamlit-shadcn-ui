@@ -21,16 +21,6 @@ setuptools.setup(
         # If your component has other Python dependencies, list
         # them here.
         "streamlit >= 0.63",
-        "streamlit_extras >= 0.3.5"
+        "streamlit_extras >= 0.3.5",
     ],
-    # extras_require={
-    #     "devel": [
-    #         "wheel",
-    #         "pytest==7.4.0",
-    #         "playwright==1.36.0",
-    #         "requests==2.31.0",
-    #         "pytest-playwright-snapshot==1.0",
-    #         "pytest-rerunfailures==12.0",
-    #     ]
-    # }
 )

@@ -1,11 +1,14 @@
+from pathlib import Path
+
 import streamlit as st
 
 import streamlit_shadcn_ui as ui
 
+theme = "dark"
 
 st.header("Button")
 
-with open("docs/components/button.md", "r") as f:
+with open(Path(__file__).parent.parent / "docs/components/button.md", "r") as f:
     st.markdown(f.read())
 
 st.subheader("Click Events")
@@ -20,15 +23,21 @@ st.subheader("Variants")
 variant_options = ["default", "destructive", "outline", "secondary", "ghost", "link"]
 
 for variant in variant_options:
-    ui.button(text=f"Button ({variant})", variant=variant, key=variant)
+    ui.button(
+        text=f"Button ({variant})", variant=variant, key=variant, class_name="theme"
+    )
 
 st.subheader("Custom style of button")
-st.markdown('''
+st.markdown("""
 ```python
     ui.button(text="Beautiful Button", key="styled_btn_tailwind", className="bg-orange-500 text-white")
 ```
 > class_name and className are both supported, class_name is used in python layer and will be converted to className for the frontend
-''')
-ui.button(text="Beautiful Button", key="styled_btn_tailwind", className="bg-orange-500 text-white")
+""")
+ui.button(
+    text="Beautiful Button",
+    key="styled_btn_tailwind",
+    className="bg-orange-500 text-white",
+)
 
 st.write(ui.button)

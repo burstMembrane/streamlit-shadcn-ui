@@ -1,9 +1,12 @@
+from pathlib import Path
+
 import streamlit as st
+
 import streamlit_shadcn_ui as ui
 
 st.header("Switch")
 
-with open("docs/components/switch.md", "r") as f:
+with open(Path(__file__).parent.parent / "docs/components/switch.md", "r") as f:
     st.markdown(f.read())
 
 # Switch Component

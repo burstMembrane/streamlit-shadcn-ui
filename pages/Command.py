@@ -1,9 +1,12 @@
+from pathlib import Path
+
 import streamlit as st
+
 import streamlit_shadcn_ui as ui
 
 st.header("Command")
 
-with open("docs/components/command.md", "r") as f:
+with open(Path(__file__).parent.parent / "docs/components/command.md", "r") as f:
     st.markdown(f.read())
 
 items = [
