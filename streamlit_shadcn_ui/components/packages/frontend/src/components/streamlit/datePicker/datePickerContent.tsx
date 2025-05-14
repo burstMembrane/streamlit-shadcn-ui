@@ -187,9 +187,7 @@ export const StDatePickerContent = forwardRef<
     // Handle cleanup on unmount
     useEffect(() => {
         return () => {
-            // If component unmounts without reporting, send the cancel action
             if (!hasReportedRef.current) {
-                console.log(`[DatePicker ${instanceId.current}] Cleanup - sending cancel`);
                 Streamlit.setComponentValue({
                     value: propsRef.current.value || null,
                     open: false,
