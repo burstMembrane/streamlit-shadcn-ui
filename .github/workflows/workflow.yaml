@@ -21,3 +21,8 @@ jobs:
         uses: astral-sh/setup-uv@v5
       - name: Build Python package with UV
         run: uv build
+      - name: Commit and Push Changes
+        uses: devops-infra/action-commit-push@v0.10.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          commit_message: "chore: commit build artifacts"
