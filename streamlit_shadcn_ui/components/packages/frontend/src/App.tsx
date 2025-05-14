@@ -107,7 +107,7 @@ function App(props: { args: { comp: string; props: any; safeHeight?: number }; w
     // TODO: different safe-height for different components
     // 10px is the minimum safe height for slider, while most of the other components do not need it.
     useAutoHeight(container, safeHeight);
-    console.log("Rendering", args.comp);
+
     return (
         <ThemeProvider defaultTheme={theme["base"]} storageKey="vite-ui-theme">
             {crouter.render(args.comp, container, args.props)}

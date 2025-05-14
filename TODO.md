@@ -11,7 +11,7 @@
 
 - [ ] Popover
 - [ ] Popup
-- [ ] Accordion
+- [x] Accordion
 - [ ] Alertdialog (e.current is null)
 - [ ] Command (Does nothing)
 - [ ] Datepicker (Doesn't trigger when clicked)

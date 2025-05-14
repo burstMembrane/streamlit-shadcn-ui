@@ -1,12 +1,8 @@
-from pathlib import Path
-
 import numpy as np
 import pandas as pd
 import streamlit as st
 
 import streamlit_shadcn_ui as ui
-from local_components import card_container
-from streamlit_shadcn_ui import input, radio_group, slider, switch, textarea
 
 st.set_page_config(
     page_title="Streamlit Shadcn UI",
@@ -180,7 +176,7 @@ st.write("UI Button Clicked:", ui_result)
 
 
 # Slider Component
-slider_value = slider(
+slider_value = ui.slider(
     default_value=[20],
     min_value=0,
     max_value=100,
@@ -192,17 +188,24 @@ slider_value = slider(
 st.write("Slider Value:", slider_value)
 
 # Input Component
-input_value = input(
+input_value = ui.input(
     default_value="Hello, Streamlit!",
     type="text",
     placeholder="Enter text here",
     key="input1",
     className=cn("outline-none focus-visible:ring-0", theme),
 )
+st.markdown("### File Input")
+# file input
+file_input = ui.input(
+    key="file_input1",
+    type="file",
+  
+)
 st.write("Input Value:", input_value)
 
 # Textarea Component
-textarea_value = textarea(
+textarea_value = ui.textarea(
     default_value="Type your message here...",
     placeholder="Enter longer text",
     key="textarea1",
@@ -216,11 +219,11 @@ radio_options = [
     {"label": "Option B", "value": "B", "id": "r2"},
     {"label": "Option C", "value": "C", "id": "r3"},
 ]
-radio_value = radio_group(options=radio_options, default_value="B", key="radio1")
+radio_value = ui.radio_group(options=radio_options, default_value="B", key="radio1")
 st.write("Selected Radio Option:", radio_value)
 
 # Switch Component
-switch_value = switch(default_checked=True, label="Toggle Switch", key="switch1")
+switch_value = ui.switch(default_checked=True, label="Toggle Switch", key="switch1")
 st.write("Switch is On:", switch_value)
 
 st.subheader("Alert Dialog")
@@ -233,7 +236,7 @@ ui.alert_dialog(
     cancel_label="Cancel",
     key="alert_dialog1",
 )
-
+ui.popover()
 
 st.markdown("### Progress Bar")
 

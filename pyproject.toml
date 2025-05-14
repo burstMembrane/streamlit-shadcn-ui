@@ -23,3 +23,8 @@ file = "LICENSE"
 [project.urls]
 homepage = "https://github.com/ObservedObserver/streamlit-shadcn-ui"
 repository = "https://github.com/ObservedObserver/streamlit-shadcn-ui"
+
+[dependency-groups]
+dev = [
+    "python-dotenv>=0.20.0",
+]

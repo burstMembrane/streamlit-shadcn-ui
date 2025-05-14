@@ -11,8 +11,11 @@ export const StPopover = forwardRef<HTMLDivElement>(
     (props: StPopoverProps, ref) => {
         const { text, disabled, onClick } = props;
         useEffect(() => {
-            Streamlit.setFrameHeight();
-        })
+            console.log("Popover ref", ref);
+            if (ref && typeof ref !== "function" && ref.current?.offsetHeight) {
+                Streamlit.setFrameHeight(ref.current.offsetHeight + 10);
+            }
+        }, [ref])
         return (
             <Popover>
                 <PopoverTrigger>Open</PopoverTrigger>

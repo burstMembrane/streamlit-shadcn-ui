@@ -41,6 +41,8 @@ checkbox_options_multiple = [
 radio_value_1 = ui.checkbox(
     mode="multiple", options=checkbox_options_multiple, key="cb4"
 )
+
+ui.checkbox(mode="single", options=checkbox_options_multiple)
 st.write("Selected Option:", radio_value_1)
 
 st.write(ui.checkbox)
