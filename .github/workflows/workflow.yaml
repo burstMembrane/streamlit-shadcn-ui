@@ -23,8 +23,8 @@ jobs:
         run: uv build
       - name: Add Build Artifacts to Git
         run: |
-          git add streamlit_shadcn_ui/components/packages/frontend/dist
-          git add dist
+          git add streamlit_shadcn_ui/components/packages/frontend/dist -f
+          git add dist -f
       - name: Commit and Push Changes
         uses: devops-infra/action-commit-push@v0.10.0
         with:
