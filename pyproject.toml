@@ -15,7 +15,12 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
-dependencies = ["streamlit", "streamlit_extras", "pandas"]
+dependencies = [
+    "streamlit",
+ "streamlit_extras",
+ "pandas",
+ "python-dotenv>=0.20.0",
+]
 
 [project.license]
 file = "LICENSE"
@@ -23,8 +28,3 @@ file = "LICENSE"
 [project.urls]
 homepage = "https://github.com/ObservedObserver/streamlit-shadcn-ui"
 repository = "https://github.com/ObservedObserver/streamlit-shadcn-ui"
-
-[dependency-groups]
-dev = [
-    "python-dotenv>=0.20.0",
-]
