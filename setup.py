@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="streamlit-shadcn-ui",
-    version="0.1.4",
+    version="0.1.19",
     author="Observed Observer",
     author_email="elwynn.c@kanaries.net",
     description="Use shadcn-ui components in Streamlit",
@@ -22,5 +22,6 @@ setuptools.setup(
         # them here.
         "streamlit >= 0.63",
         "streamlit_extras >= 0.3.5",
+        "python-dotenv >= 0.20.0",
     ],
 )
