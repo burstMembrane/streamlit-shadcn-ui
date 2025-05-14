@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: oven-sh/setup-bun@v2
+      - name: Install frontend dependencies
+        run: bun install --frozen-lockfile --verbose
+        working-directory: streamlit_shadcn_ui/components/packages/frontend
+      - name: Build frontend
+        run: bun run build
+        working-directory: streamlit_shadcn_ui/components/packages/frontend
+      - name: Install uv 
+        uses: astral-sh/setup-uv@v5
+      - name: Build Python package with UV
+        run: uv build
