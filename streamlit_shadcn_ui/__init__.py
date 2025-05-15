@@ -1,5 +1,3 @@
-import os
-
 import streamlit.components.v1 as components
 
-from streamlit_shadcn_ui.py_components import *
+from .py_components import *
